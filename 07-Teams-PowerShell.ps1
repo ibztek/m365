@@ -9,7 +9,7 @@ Get-Help set-team -Examples
 #--- Editere eksisterende Team ---#
 
 Set-Team # lar deg endre innstillingene til et eksisterende team:
-# https://docs.microsoft.com/en-us/powershell/module/teams/new-team?view=teams-ps
+# https://docs.microsoft.com/en-us/powershell/module/teams/set-team?view=teams-ps
 
 $editteam = Get-Team -DisplayName "Prosjekt ny logo"
 Set-Team -GroupId $editteam.GroupId -Description "Dette er ny beskrivelse" -Visibility Public -AllowOwnerDeleteMessages $true
@@ -18,7 +18,7 @@ Set-Team -GroupId $editteam.GroupId -Description "Dette er ny beskrivelse" -Visi
 #--- Opprette nytt Team ---#
 
 New-Team # Oppretter nytt team
-
+# https://docs.microsoft.com/en-us/powershell/module/teams/new-team?view=teams-ps
 get-Help New-Team -Examples
 
 New-Team -DisplayName "PowerShell Team" -Description "New Team for Powershell Team" -Visibility Private
