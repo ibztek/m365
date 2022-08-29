@@ -6,7 +6,7 @@
 1. Install-Module Microsoft.Graph (hvis en må oppgradere, legg til -forec på slutten)
 2. Sjekk at installasjonen gikk igjennom: Get-InstalledModule Microsoft.Grap
 3. 
-4. List ut hvilke rettigheter en kan koble seg til med: Find-MgGraphCommand -command Get-MgUser | Select -First 1 -ExpandProperty Permissions
+4. List ut hvilke rettigheter en kan koble seg til med: Find-MgGraphCommand -command Get-MgUser | Select-Object -First 1 -ExpandProperty Permissions
 5. Koble seg til: Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All","Directory.ReadWrite.All"
     - Merk at en kan velge å koble seg til med flere rettigheter ved å kjøre sammen kommando med annen scope.
 6. Get-MgUser lister ut alle brukere i tenanten

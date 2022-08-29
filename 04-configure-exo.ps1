@@ -7,12 +7,12 @@ Connect-ExchangeOnline
 # https://docs.microsoft.com/en-us/powershell/module/exchange/new-distributiongroup?view=exchange-ps
 Get-Help New-DistributionGroup -Example
 Get-DistributionGroup | Select-Object DisplayName,PrimarySmtpAddress
-New-DistributionGroup -Name "" -DisplayName -PrimarySmtpAddress ""
+New-DistributionGroup -Name "" -DisplayName "" -PrimarySmtpAddress ""
 
 # https://docs.microsoft.com/en-us/powershell/module/exchange/add-distributiongroupmember?view=exchange-ps
-Add-DistributionGroupMember -Identity "" -Member "" -PrimarySmtpAddress ""
+Add-DistributionGroupMember -Identity "" -Member ""
 
-New-Mailbox -Shared -Name "" -DisplayName "" -PrimarySmtpAddress
+New-Mailbox -Shared -Name "" -DisplayName "" -PrimarySmtpAddress ""
 
 # https://docs.microsoft.com/en-us/powershell/module/exchange/add-mailboxpermission?view=exchange-ps
 Get-Mailbox -Identity "" | Add-MailboxPermission -User "" -AccessRights FullAccess -InheritanceType All

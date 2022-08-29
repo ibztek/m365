@@ -133,4 +133,5 @@ New-MgUser -DisplayName "Mons Monsen" `
 <# kodesnutter brukt i videoen for Update-MgUser #>
 
 Update-MgUser -UserID b5c6e6db-2c3d-4ffc-bc33-8a845dda8ec3 `
-    -Department "IT-Department"
+    -Department "IT" `
+    -Company "Learn IT"
