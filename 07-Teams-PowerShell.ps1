@@ -1,14 +1,15 @@
 Get-Module MicrosoftTeams
-Install-Module MicrosoftTeams
+Install-Module MicrosoftTeams -Force
 
 Connect-MicrosoftTeams
-get-Team | Select-Object DisplayName,description,GroupId
+Get-Team | Select-Object DisplayName,description,GroupId
 Show-Command –name "Get-Team"
 Get-Help set-team -Examples
 
 #--- Editere eksisterende Team ---#
 
 Set-Team # lar deg endre innstillingene til et eksisterende team:
+Get-help Set-Team -Online # <-- Åpner nettleseren og dokumentasjonssiden til Set-Team
 # https://docs.microsoft.com/en-us/powershell/module/teams/set-team?view=teams-ps
 
 $editteam = Get-Team -DisplayName "Prosjekt ny logo"
