@@ -40,7 +40,7 @@ Get-MgGroup
 Get-MgUser
 
 
-$Group = New-MgGroup -DisplayName "Sales" -Description "Sales" -MailEnabled:$True -SecurityEnabled:$False -MailNickname Sales -GroupTypes "StaticMembership"
+$Group = New-MgGroup -DisplayName "Test" -Description "Test  group" -MailEnabled:$True -SecurityEnabled:$False -MailNickname Test -GroupTypes Unified
 
 
 
