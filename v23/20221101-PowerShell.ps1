@@ -37,10 +37,13 @@ Update-MgUser -UserID ..... `
 
 
 
-Get-MgUser -Filter "department eq 'IT'"  
-$hrusers = Get-MGUser -Filter "department eq 'IT'"     
-Get-MgGroup -Filter "DisplayName eq 'IT'"  
-$hrgroup = Get-MgGroup -Filter "DisplayName eq 'IT'" 
-New-MgGroupMember -GroupId $hrgroup.id -DirectoryObjectId $hrusers.id
 
-foreach ($user in $hrusers) { New-MgGroupMember -GroupId $hrgroup.id -DirectoryObjectId $user.id }
+Get-MgUser -Filter "department eq 'IT'"  
+$userid = Get-MGUser -Filter "department eq 'IT'"     
+Get-MgGroup -Filter "DisplayName eq 'IT'"  
+$groupid = Get-MgGroup -Filter "DisplayName eq 'IT'" 
+New-MgGroupMember -GroupId $groupid.id -DirectoryObjectId $userid.id
+
+foreach ($user in $userid) { New-MgGroupMember -GroupId $groupid.id -DirectoryObjectId $user.id }
+Get-MgGroupMember -GroupId $GroupId -All | ForEach {Get-MgUser -UserId $_.Id}
+
