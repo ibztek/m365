@@ -9,10 +9,11 @@ Find-Module -Name Microsoft.Graph | Install-Module
 Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All","Directory.ReadWrite.All"
 Get-MgUser  | Format-List  ID, DisplayName, Mail, UserPrincipalName
 Get-MgUser  | Select-Object  ID, DisplayName, Mail, UserPrincipalName | ft
-Get-MgUser -UserID fec9ff51-f8f0-43ab-9493-5f52dbbe484f
-Get-MgUser -UserID fec9ff51-f8f0-43ab-9493-5f52dbbe484f | Format-List 
-Get-MgUser -UserID fec9ff51-f8f0-43ab-9493-5f52dbbe484f | format-list givenname, surname, UserPrincipalName
-$testvariable = Get-MgUser -UserID fec9ff51-f8f0-43ab-9493-5f52dbbe484f | format-list givenname, surname, UserPrincipalName
+Get-MgUser -UserID SKRIVID
+Get-MgUser -UserID SKRIVID | Format-List 
+# Vis Azure AD GUI
+Get-MgUser -UserID SKRIVID | format-list givenname, surname, UserPrincipalName
+$testvariable = Get-MgUser -UserID SKRIVID | format-list givenname, surname, UserPrincipalName
 
 
 <# kodesnutter brukt i videoen for New-MgUser #>
@@ -33,3 +34,13 @@ New-MgUser -DisplayName "Mons Monsen" `
 Update-MgUser -UserID ..... `
     -Department "IT" `
     -Company "Learn IT"
+
+
+
+Get-MgUser -Filter "department eq 'IT'"  
+$hrusers = Get-MGUser -Filter "department eq 'IT'"     
+Get-MgGroup -Filter "DisplayName eq 'IT'"  
+$hrgroup = Get-MgGroup -Filter "DisplayName eq 'IT'" 
+New-MgGroupMember -GroupId $hrgroup.id -DirectoryObjectId $hrusers.id
+
+foreach ($user in $hrusers) { New-MgGroupMember -GroupId $hrgroup.id -DirectoryObjectId $user.id }
