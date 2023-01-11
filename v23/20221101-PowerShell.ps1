@@ -36,6 +36,12 @@ Update-MgUser -UserID ..... `
     -Company "Learn IT"
 
 
+Get-MgGroup
+Get-MgUser
+
+
+$Group = New-MgGroup -DisplayName "Sales" -Description "Sales" -MailEnabled:$True -SecurityEnabled:$False -MailNickname Sales -GroupTypes "StaticMembership"
+
 
 
 Get-MgUser -Filter "department eq 'IT'"  
